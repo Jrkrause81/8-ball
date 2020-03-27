@@ -1,6 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
-  color: cornflowerblue;
+  color: #454545;
   margin: 0px;
   padding: 0px;
   background-color: #f8f8f8;
@@ -10,12 +10,15 @@ body {
   width: 80%;
   max-width: 960px;
   margin: 0 auto;
-  background-color: #d9e6f2;
-  border: 3px solid black;
-  border-radius: 10px;
+  background-color: cornflowerblue;
+  margin-top: 50px;
+  
+  border-radius: 5px;
 }
 .ball, .button {
   margin: 0 auto;
+  position:relative;
+  width:80%;
 }
 .answer {
   position:absolute;
@@ -38,6 +41,10 @@ body {
   padding: 10px 75px;
   display: block;
   margin: 0 auto;
+}
+
+#answer {
+  color: white;
 }
 
 header {

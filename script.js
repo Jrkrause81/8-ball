@@ -1,33 +1,36 @@
 $(document).ready(function(){
 
-var magic8ball = {};
-magic8ball.listOfAnswers = ["It is certain", "Most likely", "Reply hazy", "Try again", "Don't count on it", "My sources say no"];
-$("#answer").hide();
+    var magic8Ball = {};
 
-magic8ball.askQuestion = function(question) {
-	var randomNumber = Math.random();
-	var listOfNumbers = randomNumber * this.listOfAnswers.length;
-	var randomIndex = Math.floor(listOfNumbers);
-	var answer = this.listOfAnswers[randomIndex];
-	$("#mBall").attr("src","https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/answerside.png");
-	$("#mBall").effect("shake");
-	$("#answer").text(answer);
-	console.log(question);
-	console.log(answer);
-};
-$("#answer").hide();
+    magic8Ball.listOfAnswers = ["Corona Virus", "Abducted By Aliens", "Amnesia", "Car Trouble", "Full Moon, Huh?", "I Was Mugged", "It's In The Mail", "It's Not My Job", "I've Got a Headache", "Jury Duty", "Kryptonite", "Mexican Food", "My Dog Ate It", "My Fish Died", "No Hablo Ingles", "I Crapped My Pants", "Oprah", "The Voices Told Me To", "Traffic Was Bad", "What Memo?"];
 
-var askMeAnything = function()
-{
+    magic8Ball.askQuestion = function(question){
+        $("#answer").fadeIn(2000);
+        var randomNumber = Math.random();
+        var randomNumberForListOfAnswers = randomNumber * this.listOfAnswers.length;
+        var randomIndex = Math.floor(randomNumberForListOfAnswers);
+        var answer = this.listOfAnswers[randomIndex];
 
-$("#mBall").attr("src","https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/8side.png");
-$("#answer").fadeIn(4000);
-setTimeout(
-	function()
-	{
- var question = prompt("Yes or No question, please")
-magic8ball.askQuestion(question)}, 500);
-};
-$("#answer").hide();
-$("#questionButton").click(askMeAnything);
+        $("#answer").text(answer);
+        console.log(question);
+        console.log(answer);
+    };
+
+    $("#answer").hide();
+
+    var onClick = function() {
+      var question = prompt("What do you need an excuse for?");
+      magic8Ball.askQuestion(question);
+      $("#8ball").effect("shake");
+      setTimeout(
+        function() {
+      $("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/answerside.png");
+    }, 500);
+
+    };
+
+    $("#questionButton").click(onClick);
+
+
+
 });
